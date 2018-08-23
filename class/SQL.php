@@ -1,4 +1,4 @@
-<?php
+ <?php
 	
 	//classe PDO já é nativa do sistema
 	class SQL extends PDO {
@@ -11,17 +11,17 @@
 
 		}
 
-		private function setParam($statment, $key, $value) {
+		private function setParam($statement, $key, $value) {
 
-			$statment->bindParam($key, $value);
+			$statement->bindParam($key, $value);
 
 		}
 
-		private function setParams($statment, $parameters = array()) {
+		private function setParams($statement, $parameters = array()) {
 
 			foreach ($parameters as $key => $value) {
 				
-				$this->setParam($key, $value);
+				$this->setParam($statement, $key, $value);
 
 			}
 
@@ -29,21 +29,21 @@
 
 		public function query($rawQuery, $params = array()) {
 
-			$statment = $this->connection->prepare($rawQuery);
+			$statement = $this->connection->prepare($rawQuery);
 
-			$this->setParams($statment, $params);
+			$this->setParams($statement, $params);
 
-			$statment->execute();
+			$statement->execute();
 
-			return $statment;
+			return $statement;
 
 		}
 
 		public function select($rawQuery, $params = array()):array {
 
-			$statment = $this->query($rawQuery, $params);
+			$statement = $this->query($rawQuery, $params);
 
-			return $statment->fetchAll(PDO::FETCH_ASSOC);
+			return $statement->fetchAll(PDO::FETCH_ASSOC);
 
 		}
 

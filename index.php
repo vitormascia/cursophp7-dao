@@ -4,30 +4,53 @@
 
 	// $sql = new SQL();
 
-	// $n1 = 'Bigua';
-	// $n2 = 'Biguazera';
+	// $n1 = "Bigua";
+	// $n2 = "Biguazera";
 	// $p = 123456;
+
+	// Exemplo de um SELECT mais complexo
 
 	// $users = $sql->select("SELECT deslogin, dessenha 
 	// 	FROM tb_usuarios 
 	// 	WHERE (deslogin IN (:N1, :N2)) OR (dessenha = :P) 
 	// 	ORDER BY idusuario",
-	// array(":N1"=>$n1, ":N2"=>$n2, ":P"=>$p)
+	// 	array(":N1"=>$n1, ":N2"=>$n2, ":P"=>$p)
 	// );
 
-	// echo "<pre>";
 	// echo json_encode($users);
-	// echo "</pre>";
 
-	// echo "<br><br>";
 	//----------------------------------------------------------
 
+	// Carrega 1 usuário
+	// $user = new User();
+
+	// $user->loadById(13);
+
+	// O objeto que está em $user é printado pelo __toString
+	// echo $user;
+
+	//----------------------------------------------------------
+
+	// Carrega uma lista de usuários
+	// $list = User::getList();
+
+	// A função getList retorna um JSON de um array de arrays, com a tabela completa do BD
+	// echo $list;
+
+	//----------------------------------------------------------
+
+	// Carrega uma lista de usuários buscando pelo login
+	// $search = User::search("mascia");
+
+	// echo $search;
+
+	//----------------------------------------------------------
+
+	// Carrega um usuário usando o login e a senha
 	$user = new User();
 
-	$user->loadById(13);
+	$user->login("Pirata","885695");
 
-	echo "<pre>";
 	echo $user;
-	echo "</pre>";
 
 ?>

@@ -2,6 +2,8 @@
 
 	require_once("config.php");
 
+	//----------------------------------------------------------
+
 	// $sql = new SQL();
 
 	// $n1 = "Bigua";
@@ -47,9 +49,31 @@
 	//----------------------------------------------------------
 
 	// Carrega um usuário usando o login e a senha
+	// $user = new User();
+
+	// $user->login("Pirata","885695");
+
+	// echo $user;
+
+	//----------------------------------------------------------
+
+	// Insert de um novo usuário
+
+	// $user = new User("BelgaNato", "982342");
+
+	// $user->insert();
+
+	// echo $user;
+
+	//----------------------------------------------------------
+
+	// Dando update em um usuário
+
 	$user = new User();
 
-	$user->login("Pirata","885695");
+	$user->loadById(18);
+
+	$user->update("Kyoto329", "ap17ap21");
 
 	echo $user;
 

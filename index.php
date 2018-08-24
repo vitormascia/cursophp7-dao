@@ -69,11 +69,23 @@
 
 	// Dando update em um usuário
 
+	// $user = new User();
+
+	// $user->loadById(18);
+
+	// $user->update("Kyoto329", "ap17ap21");
+
+	// echo $user;
+
+	//----------------------------------------------------------
+
+	// Deletando um usuário
+
 	$user = new User();
 
-	$user->loadById(18);
+	$user->loadById(20);
 
-	$user->update("Kyoto329", "ap17ap21");
+	$user->delete();
 
 	echo $user;
 
